@@ -1,0 +1,13 @@
+ToneMatrix will only load songs if the file name is one of the following:
+
+song0.tms
+song1.tms
+song2.tms
+song3.tms
+song4.tms
+song5.tms
+song6.tms
+song7.tms
+song8.tms
+song9.tms
+

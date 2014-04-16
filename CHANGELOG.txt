@@ -1,0 +1,22 @@
+ToneMatrix changelog:
+
+0.9:
+ - Added save song and load song functions
+ - Changed from 12 grids to 16 grids
+ - Removed "Quit" and "Stop playing" menu options
+
+0.8:
+ - Added 12 grid sequencer
+ - Added loop all function
+ - Added cut, copy, and paste functions
+
+0.7:
+ - Added mute row function
+ - Added solo row function
+
+0.6:
+ - Fixed "trail" bug
+
+0.5:
+ - Initial release
+ - Clear grid, tempo, and stop functions
