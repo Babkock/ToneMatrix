@@ -1,7 +1,8 @@
 /* ToneMatrix - menu.c
  * Copyright (c) 2012 Tanner Babcock */
 #include <oslib/oslib.h>
-#include "main.h" 
+#include "main.h"
+#include "menu.h"
 
 unsigned char tmMenu(void) {
 	int x;
@@ -42,7 +43,7 @@ unsigned char tmMenu(void) {
 					sprintf(mstrings[x], "%s Copy grid", (menuoption == x) ? "->" : "  ");
 					break;
 				case PASTEM:
-					if (tmIsGridEmpty(clipboard))
+					if (tmIsGridEmpty(&clipboard))
 						oslSetTextColor(RGBA(255,0,0,255));
 					sprintf(mstrings[x], "%s Paste grid", (menuoption == x) ? "->" : "  ");
 					break;
@@ -108,17 +109,17 @@ unsigned char tmMenu(void) {
 			else {
 				switch (menuoption) {
 					case CUTM:
-						clipboard = tmClear();
+						tmClear(&clipboard);
 						clipboard = data[current];
-						data[current] = tmClear();
+						tmClear(&data[current]);
 						break;
 					case COPYM:
-						clipboard = tmClear();
+						tmClear(&clipboard);
 						clipboard = data[current];
 						break;
 					case PASTEM:
-						if (!tmIsGridEmpty(clipboard)) {
-							data[current] = tmClear();
+						if (!tmIsGridEmpty(&clipboard)) {
+							tmClear(&data[current]);
 							data[current] = clipboard;
 						}
 						break;

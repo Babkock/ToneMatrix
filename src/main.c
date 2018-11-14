@@ -4,15 +4,16 @@
 #include <pspkernel.h>
 #include <psputils.h>
 #include "main.h"
+#include "menu.h"
 #define c data[current]
 PSP_MODULE_INFO("ToneMatrix", 0, 1, 1);
 PSP_MAIN_THREAD_ATTR(THREAD_ATTR_USER | THREAD_ATTR_VFPU);
-PSP_HEAP_SIZE_KB(-2048);
+PSP_HEAP_SIZE_KB(2048);
 
 void tmMainLoop(void) {
 	int x = 0, y = 0, q, m;
 	int tmpcurrent = current;
-	clock_t start, cu, d;
+	clock_t start, cu;
 	start = sceKernelLibcClock();
 	oslClearScreen(RGBA(0, 0, 0, 255));
 	tmStart();
@@ -78,7 +79,7 @@ void tmMainLoop(void) {
 				else if (c.grid[x-1][y] == OFF)
 					c.grid[x-1][y] = CURSOFF;
 				x--;
-			} 
+			}
 		}
 		if (osl_keys->pressed.right) {
 			if (x < (MAX_X-1)) {
@@ -121,7 +122,7 @@ void tmMainLoop(void) {
 				solo = 0;
 			mute[y] = (mute[y]) ? FALSE : TRUE;
 		}
-		
+
 		if (osl_keys->pressed.R) {
 			if (current < 11)
 				current++;
@@ -142,12 +143,12 @@ void tmMainLoop(void) {
 					tmHelp();
 					break;
 				case CLEARM:
-					data[current] = tmClear();
+					tmClear(&data[current]);
 					break;
 				case CLEARALLM:
 					if (tmClearAllWarning()) {
 						for (q = 0; q < MAX_GRIDS; q++)
-							data[q] = tmClear();
+							tmClear(&data[q]);
 						current = 0;
 						x = 0, y = 0;
 					}

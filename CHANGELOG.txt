@@ -1,5 +1,8 @@
 ToneMatrix changelog:
 
+0.92:
+ - Fixed some things in the code
+
 0.9:
  - Added save song and load song functions
  - Changed from 12 grids to 16 grids

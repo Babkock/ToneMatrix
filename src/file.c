@@ -33,10 +33,10 @@ void tmFileDialog(bool save) {
 		songMeta[x].minute = a.st_mtime.minute;
 		songMeta[x].hour = a.st_mtime.hour;
 	}
-	// I have to make a separate struct because accessing sm->tm_mday
-	// from the while (!osl_quit) fries the memory stick
-	// same reason why there's a bool empty[]
-
+	/* I have to make a separate struct because accessing sm->tm_mday
+	   from the while (!osl_quit) fries the memory stick
+	   same reason why there's a bool empty[]
+	*/
 	for (x = 0; x < MAX_SAVE_SLOTS; x++) {
 		bzero(tmp, sizeof(tmp));
 		sprintf(tmp, "songs/song%d.tms", x);

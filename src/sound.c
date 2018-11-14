@@ -22,14 +22,14 @@ void tmSoundLoop(void) {
 		}
 		if (rflag) {
 			if (loopall)
-				current = (!tmIsGridEmpty(data[current+1])) ? (current+1) : 0;
+				current = (!tmIsGridEmpty(&data[current+1])) ? (current+1) : 0;
 		}
 		else {
 			if (loopall)
-				current = ((!tmIsGridEmpty(data[current+1])) && (current < MAX_GRIDS)) ? (current+1) : 0;
+				current = ((!tmIsGridEmpty(&data[current+1])) && (current < MAX_GRIDS)) ? (current+1) : 0;
 		}
 	}
-	sceKernelExitDeleteThread(NULL);
+	sceKernelExitDeleteThread(0);
 	return;
 }
 
