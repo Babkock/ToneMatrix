@@ -7,6 +7,11 @@
 #include <unistd.h>
 #include "main.h"
 
+typedef struct {
+	int year, month, day;
+	int minute, hour;
+} metadata;
+
 void tmFileDialog(bool save) {
 	int x;
 	unsigned char option = 0;
@@ -16,10 +21,7 @@ void tmFileDialog(bool save) {
 	char tmp[30];
 	
 	SceIoStat a;
-	typedef struct {
-		int year, month, day;
-		int minute, hour;
-	} metadata;
+
 	metadata songMeta[MAX_SAVE_SLOTS];
 
 	current = 0;
@@ -104,7 +106,6 @@ void tmFileDialog(bool save) {
 		oslEndDrawing();
 		oslSyncFrame();
 	}
-	return;
 }
 
 bool tmDoesFileExist(const char *path) {
@@ -133,7 +134,6 @@ void tmRead(int slot) {
 		fseek(in, 5, SEEK_CUR);
 	}
 	fclose(in);
-	return;
 }
 
 void tmWrite(int slot) {
@@ -154,5 +154,4 @@ void tmWrite(int slot) {
 		fprintf(out, "%c%c%c%c\a", 82, 42, 82, 22);
 	}
 	fclose(out);
-	return;
 }

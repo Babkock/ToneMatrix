@@ -11,7 +11,6 @@ void tmClear(tmGrid *g) {
 			g->grid[y][z] = OFF;
 	}
 	g->grid[0][0] = CURSOFF;
-	return;
 }
 
 bool tmIsGridEmpty(tmGrid *g) {
@@ -36,5 +35,4 @@ void tmSwitchGrid(int *a, int *b) {
 				data[current].grid[x][y] = OFF;	
 		}
 	}
-	return;
 }

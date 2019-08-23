@@ -38,5 +38,4 @@ void tmDrawGrid(void) {
 				oslDrawImageXY(select, x1form, y1form);
 		}
 	}
-	return;
 }

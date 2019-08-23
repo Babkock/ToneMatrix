@@ -7,7 +7,6 @@
 unsigned char tmMenu(void) {
 	int x;
 	char mstrings[MAX_MENU_ITEMS][40];
-	char ver[25];
 	while (!osl_quit) {
 		oslStartDrawing();
 		oslReadKeys();
@@ -57,9 +56,6 @@ unsigned char tmMenu(void) {
 			oslDrawString(10, (60+(x*10)), mstrings[x]);
 			oslSetTextColor(RGBA(255,255,255,255));
 		}
-		bzero(ver, sizeof(ver));
-		// sprintf(ver, "ToneMatrix %s by Babkock", VERSION);
-		oslDrawString(10, 240, ver);
 		if ((osl_keys->pressed.up) && (menuoption > 0)) {
 			menuoption--;
 			if (menuoption == BREAK)
@@ -163,7 +159,6 @@ void tmHelp(void) {
 		oslEndDrawing();
 		oslSyncFrame();
 	}
-	return;
 }
 
 bool tmClearAllWarning(void) {

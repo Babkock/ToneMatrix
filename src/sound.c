@@ -30,18 +30,15 @@ void tmSoundLoop(void) {
 		}
 	}
 	sceKernelExitDeleteThread(0);
-	return;
 }
 
 void tmStop(void) {
 	isplaying = FALSE;
 	col = 0;
 	sceKernelTerminateThread(soundloop);
-	return;
 }
 
 void tmStart(void) {
 	isplaying = TRUE;
 	sceKernelStartThread(soundloop, 0, NULL);
-	return;
 }
