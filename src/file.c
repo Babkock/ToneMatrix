@@ -6,11 +6,7 @@
 #include <time.h>
 #include <unistd.h>
 #include "main.h"
-
-typedef struct {
-	int year, month, day;
-	int minute, hour;
-} metadata;
+#include "file.h"
 
 void tmFileDialog(bool save) {
 	int x;

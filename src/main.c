@@ -12,7 +12,7 @@ PSP_HEAP_SIZE_KB(2048);
 
 void tmMainLoop(void) {
 	int x = 0, y = 0, q, m;
-	int tmpcurrent = current;
+	unsigned char tmpcurrent = current;
 	clock_t start, cu;
 	start = sceKernelLibcClock();
 	oslClearScreen(RGBA(0, 0, 0, 255));

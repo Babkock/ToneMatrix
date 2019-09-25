@@ -27,8 +27,7 @@ enum {
 	MAX_X = 16,
 	MAX_Y = 8,
 	MAX_BPM = 250,
-	MIN_BPM = 60,
-	MAX_SAVE_SLOTS = 10
+	MIN_BPM = 60
 };
 
 typedef struct {
@@ -50,12 +49,6 @@ OSL_IMAGE			*select;
 // draw.c
 int					tmGetColor(char gridval, int x, int y);
 void 				tmDrawGrid(void);
-
-// file.c
-void				tmFileDialog(bool save);
-bool				tmDoesFileExist(const char *path);
-void				tmRead(int slot);
-void				tmWrite(int slot);
 
 // grid.c
 void				tmClear(tmGrid *g);
